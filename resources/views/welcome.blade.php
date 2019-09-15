@@ -1,100 +1,85 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
 
-        <title>Laravel</title>
+@section('content')
+{{-- <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    You are logged in!
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+</div> --}}
+
+<!-- Banner
+================================================== -->
+
+<div id="banner" style="background: url(images/banner-home-01.jpg)">
+	<div class="container">
+		<div class="sixteen columns">
+			
+			<div class="search-container">
+
+				<!-- Form -->
+				<h2>Find job</h2>
+				<input type="text" class="ico-01" placeholder="job title, keywords or company name" value=""/>
+				<input type="text" class="ico-02" placeholder="city, province or region" value=""/>
+				<button><i class="fa fa-search"></i></button>
+
+				<!-- Browse Jobs -->
+				<div class="browse-jobs">
+					Browse job offers by <a href="browse-categories.html"> category</a> or <a href="#">location</a>
+				</div>
+				
+				<!-- Announce -->
+				<div class="announce">
+					We’ve over <strong>15 000</strong> job offers for you!
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- Categories -->
+<div class="container">
+        <div class="sixteen columns">
+            <h3 class="margin-bottom-25">Popular Categories</h3>
+            <ul id="popular-categories">
+                <li><a href="#"><i class="fa fa-line-chart"></i> Accounting / Finance</a></li>
+                <li><a href="#"><i class="fa fa-wrench"></i> Automotive Jobs</a></li>
+                <li><a href="#"><i class="fa fa-building-o"></i> Construction / Facilities</a></li>
+                <li><a href="#"><i class="fa fa-graduation-cap"></i> Education Training</a></li>
+                <li><a href="#"><i class="fa fa-medkit"></i> Healthcare</a></li>
+                <li><a href="#"><i class="fa fa-cutlery"></i> Restaurant / Food Service</a></li>
+                <li><a href="#"><i class="fa fa-globe"></i> Transportation / Logistics</a></li>
+                <li><a href="#"><i class="fa fa-laptop"></i> Telecommunications</a></li>
+            </ul>
+    
+            <div class="clearfix"></div>
+            <div class="margin-top-30"></div>
+    
+            <a href="#browse-categories" class="button centered">Browse All Categories</a>
+            <div class="margin-bottom-50"></div>
+        </div>
+    </div>
+
+    <!-- Infobox -->
+    <div class="infobox">
+        <div class="container">
+            <div class="sixteen columns">Start Building Your Own Job Board Now <a href="#my-account">Get Started</a></div>
+        </div>
+    </div>
+
+@endsection
