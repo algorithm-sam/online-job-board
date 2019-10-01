@@ -80,9 +80,9 @@
             </div>
         </nav> --}}
         @include('layouts.header')
-        
+
             @yield('content')
-        
+
         @include('layouts.footer')
     </div>
 

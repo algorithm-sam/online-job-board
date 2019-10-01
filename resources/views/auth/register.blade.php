@@ -23,73 +23,69 @@
 
 	<div class="my-account">
 
-		<ul class="tabs-nav">
-			<li class=""><a href="#tab1">Login</a></li>
-			<li><a href="#tab2">Register</a></li>
-		</ul>
-
 		<div class="tabs-container">
-			<!-- Login -->
-			<div class="tab-content" id="tab1" style="display: none;">
-
-				<h3 class="margin-bottom-10 margin-top-10">Login</h3>
-
-				<form method="post" class="login">
-
-					
-					<p class="form-row form-row-wide">
-						<label for="username">Username or Email Address:</label>
-						<input type="text" class="input-text" name="username" id="username" value="" />
-					</p>
-
-					<p class="form-row form-row-wide">
-						<label for="password">Password:</label>
-						<input class="input-text" type="password" name="password" id="password" />
-					</p>
-
-					<p class="form-row">
-						<input type="submit" class="button" name="login" value="Login" />
-
-						<label for="rememberme" class="rememberme">
-						<input name="rememberme" type="checkbox" id="rememberme" value="forever" /> Remember Me</label>
-					</p>
-
-					<p class="lost_password">
-						<a href="#" >Lost Your Password?</a>
-					</p>
-
-					
-				</form>
-			</div>
-
 				<!-- Register -->
 				<div class="tab-content" id="tab2" style="display: none;">
 
 					<h3 class="margin-bottom-10 margin-top-10">Register</h3>
 
-					<form method="post" class="register">
-						
+                    <form method="post" class="register" action="{{route('register')}}">
+                        @csrf
+
+                        <p class="form-row form-row-wide">
+                            <label for="reg_name">Name:</label>
+                            <input type="text" class="input-text @error('name') is-invalid @enderror" name="name" id="reg_name" placeholder="Name" />
+                            @error('name')
+                                {{ $message }}
+                            @enderror
+                        </p>
+
 						<p class="form-row form-row-wide">
 							<label for="reg_email">Email Address:</label>
-							<input type="email" class="input-text" name="email" id="reg_email" value="" />
+                            <input type="email" class="input-text @error('email') is-invalid @enderror" name="email" id="reg_email" placeholder="example@example.net" />
+                            @error('email')
+                                {{ $message }}
+                            @enderror
 						</p>
 
-						
+
+                        <p class="form-row form-row-wide">
+                            <label for="account_type">Account Type:</label>
+                            <select class="form-control" name="account_type">
+                                <option value=""> Select Account Type</option>
+                                <option value="Employer"> Employer</option>
+                                <option value="Job Seeker"> Job Seeker</option>
+                            </select>
+                            {{-- <input type="email" class="input-text @error('email') is-invalid @enderror" name="email" id="account_type" placeholder="example@example.net" /> --}}
+                            @error('account_type')
+                                {{ $message }}
+                            @enderror
+                        </p>
+
 						<p class="form-row form-row-wide">
 							<label for="reg_password">Password:</label>
-							<input type="password" class="input-text" name="password" id="reg_password" />
+                            <input type="password" class="input-text  @error('password') is-invalid @enderror" name="password" id="reg_password" />
+                            @error('password')
+                                {{ $message }}
+                            @enderror
 						</p>
 
 						<p class="form-row form-row-wide">
 							<label for="reg_password2">Repeat Password:</label>
-							<input type="password" class="input-text" name="password" id="reg_password2" />
+							<input type="password" class="input-text  @error('password') is-invalid @enderror" name="password_confirmation" id="reg_password2" />
 						</p>
 
-									
+
+                        <p class="lost_password">
+                                <div class="pull-right">
+                                    <a href="/login">Login Instead</a>
+
+                                </div>
+                        </p>
 						<p class="form-row">
-							<input type="submit" class="button" name="register" value="Register" />
+							<button type="submit" class="button"> Register </button>
 						</p>
-						
+
 					</form>
 				</div>
 		</div>

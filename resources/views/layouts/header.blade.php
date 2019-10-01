@@ -29,8 +29,8 @@
                     <li><a href="#">Browse Jobs</a></li>
                     <li><a href="#">Add Resume</a></li>
                     {{-- <li><a href="manage-resumes.html">Manage Resumes</a></li> --}}
-
-                    {{-- <li><a href="#">For Candidates</a>
+                    @if(auth()->user()->account_type == 'Job Seeker')
+                    <li><a href="#">Candidate Dashboard</a>
                         <ul>
                             <li><a href="browse-jobs.html">Browse Jobs</a></li>
                             <li><a href="browse-categories.html">Browse Categories</a></li>
@@ -38,25 +38,37 @@
                             <li><a href="manage-resumes.html">Manage Resumes</a></li>
                             <li><a href="job-alerts.html">Job Alerts</a></li>
                         </ul>
-                    </li> --}}
-    
-                    {{-- <li><a href="#">For Employers</a>
+                    </li>
+                    @else
+
+                    <li><a href="#">Manage Jobs Postings</a>
                         <ul>
                             <li><a href="add-job.html">Add Job</a></li>
                             <li><a href="manage-jobs.html">Manage Jobs</a></li>
                             <li><a href="manage-applications.html">Manage Applications</a></li>
                             <li><a href="browse-resumes.html">Browse Resumes</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
+                    @endif
+                    {{--  --}}
+    
+                    {{--  --}}
     
                     {{-- <li><a href="blog.html">Blog</a></li> --}}
                 </ul>
     
-    
+                @guest
                 <ul class="float-right">
-                    <li><a href="#tab2"><i class="fa fa-user"></i> Sign Up</a></li>
-                    <li><a href="#"><i class="fa fa-lock"></i> Log In</a></li>
+                    <li><a href="/register"><i class="fa fa-user"></i> Sign Up</a></li>
+                    <li><a href="/login"><i class="fa fa-lock"></i> Log In</a></li>
                 </ul>
+                @else
+                <ul class="float-right">
+                    <li><a href="/logout"><i class="fa fa-user"></i>Log out</a></li>
+                    
+                </ul>
+                @endguest
+                
     
             </nav>
     
