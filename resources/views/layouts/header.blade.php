@@ -1,18 +1,18 @@
 <header>
     <div class="container">
         <div class="sixteen columns">
-        
+
             <!-- Logo -->
             <div id="logo">
                 <h1><a href="{{url('/')}}"><img src="/images/logo-01.png" alt="Online Job Board" /></a></h1>
             </div>
-    
+
             <!-- Menu -->
             <nav id="navigation" class="menu">
                 <ul id="responsive">
-    
+
                 <li><a href="{{url('/')}}" id="current">Home</a></li>
-    
+
                     <li><a href="#">Contact</a></li>
 
                     {{-- <li><a href="#">Pages</a>
@@ -25,7 +25,7 @@
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </li> --}}
-    
+
                     <li><a href="#">Browse Jobs</a></li>
                     <li><a href="#">Add Resume</a></li>
                     {{-- <li><a href="manage-resumes.html">Manage Resumes</a></li> --}}
@@ -51,12 +51,12 @@
                     </li>
                     @endif
                     {{--  --}}
-    
+
                     {{--  --}}
-    
+
                     {{-- <li><a href="blog.html">Blog</a></li> --}}
                 </ul>
-    
+
                 @guest
                 <ul class="float-right">
                     <li><a href="/register"><i class="fa fa-user"></i> Sign Up</a></li>
@@ -65,18 +65,18 @@
                 @else
                 <ul class="float-right">
                     <li><a href="/logout"><i class="fa fa-user"></i>Log out</a></li>
-                    
+
                 </ul>
                 @endguest
-                
-    
+
+
             </nav>
-    
+
             <!-- Navigation -->
             <div id="mobile-navigation">
                 <a href="#menu" class="menu-trigger"><i class="fa fa-reorder"></i> Menu</a>
             </div>
-    
+
         </div>
     </div>
     </header>
